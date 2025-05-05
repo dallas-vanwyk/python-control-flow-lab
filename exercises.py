@@ -22,7 +22,7 @@ def print_greeting():
         print("Python is fun!")
 
 # Call the function
-# print_greeting()
+print_greeting()
 
 
 # Exercise 1: Vowel or Consonant
@@ -58,7 +58,7 @@ def check_letter():
 
 
 # Call the function
-# check_letter()
+check_letter()
 
 
 
@@ -98,7 +98,7 @@ def check_voting_eligibility():
         
 
 # Call the function
-# check_voting_eligibility()
+check_voting_eligibility()
 
 
 
@@ -145,7 +145,7 @@ def calculate_dog_years():
 
 
 # Call the function
-# calculate_dog_years()
+calculate_dog_years()
 
 
 
@@ -170,11 +170,26 @@ def calculate_dog_years():
 # - Use logical operators (`AND`, `OR`, `NOT`) in your if statements to handle multiple conditions.
 
 def weather_advice():
-    # Your control flow logic goes here
-    print('balls')
-
+    cold = input('is it cold? (yes/no)').lower()
+    raining = input('is it raining? (yes/no)').lower()
+    
+    
+    
+    if cold == 'yes':
+        if raining == 'yes':
+            print('Wear a waterproof coat')
+        elif raining == 'no':
+            print('Wear a warm coat')
+    elif cold == 'no':
+        if raining == 'yes':
+            print('Carry an umbrella')
+        elif raining == 'no':
+            print('Wear light clothing')
+    else:
+        print('invalid input')
+    
 # Call the function
-# weather_advice()
+weather_advice()
 
 
 
@@ -217,31 +232,37 @@ def determine_season():
 
     month = input("Enter the month of the year (Jan - Dec): ").lower()
     day = input("Enter the day of the month: ")
-    day = int(day)
+    try:
+        day = int(day)
+    except:
+        print('day must be integer')
+        return
+    if day < 1 or day > 31:
+        print('invalid date')
+        return
 
-
-    if month == "jan" or "feb":
+    if month == "jan" or month == "feb":
         season = 'winter'
     elif month == "mar":
         if day <= 19:
             season = 'winter'
         else:
             season = 'spring'
-    elif month == "apr" or "may":
+    elif month == "apr" or month == "may":
         season = 'spring'
     elif month == 'jun':
         if day <= 20:
             season = 'spring'
         else:
             season = 'summer'
-    elif month == 'jul' or 'aug':
+    elif month == 'jul' or month == 'aug':
         season = 'summer'
     elif month == 'sep':
         if day <= 21:
             season = 'summer'
         else:
             season = 'fall'
-    elif month == 'oct' or 'nov':
+    elif month == 'oct' or month == 'nov':
         season = 'fall'
     elif month == 'dec':
         if day <= 20:
